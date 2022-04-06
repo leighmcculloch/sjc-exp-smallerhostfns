@@ -25,6 +25,14 @@ test: $(SJC)
 	$(SJC) build -o 3-sfn-3.wasm tests-scratch/3.ts
 	rm -fr tests-scratch
 
+	mkdir -p tests-scratch
+	cp tests/*.ts tests-scratch
+	cp impl/4-vopinline/*.ts tests-scratch
+	$(SJC) build -o 4-vopinline-1.wasm tests-scratch/1.ts
+	$(SJC) build -o 4-vopinline-2.wasm tests-scratch/2.ts
+	$(SJC) build -o 4-vopinline-3.wasm tests-scratch/3.ts
+	rm -fr tests-scratch
+
 	ls -lh *.wasm
 
 $(SJC):
